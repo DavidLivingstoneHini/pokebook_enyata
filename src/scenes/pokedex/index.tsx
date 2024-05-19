@@ -14,7 +14,7 @@ export default function Pokemons() {
       <header
         className="bg-cover bg-fixed bg-center bg-no-repeat shadow-[0_14px_24px_0_hsl(0_0%_0%_/_.05)]"
         style={{
-          backgroundImage: `linear-gradient(hsl(0 0% 100% / .97), hsl(0 0% 100% / .97)), url('/assets/images/noise.webp')`,
+          backgroundImage: `linear-gradient(hsl(0 0% 100% / .97), hsl(0 0% 100% / .97)), url('/assets/images/backgroundImage.webp')`,
         }}
       >
         <div className="container flex h-full items-center justify-between gap-x-5 md:gap-x-8">

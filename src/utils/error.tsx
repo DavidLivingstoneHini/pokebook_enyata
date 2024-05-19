@@ -7,11 +7,11 @@ export default function Error() {
   const navigate = useNavigate();
   const error = useRouteError();
 
-  const renderNotFound = () => {
+  const statusRender = () => {
     return (
       <>
         <Helmet>
-          <title>404 - Page Not Found</title>
+          <title>404 Not Found</title>
         </Helmet>
         <div className="space-y-2">
           <h2>404</h2>
@@ -31,11 +31,11 @@ export default function Error() {
     return (
       <>
         <Helmet>
-          <title>Something went wrong</title>
+          <title>Internal server error</title>
         </Helmet>
         <div className="space-y-2">
-          <h2>Something went wrong!</h2>
-          <p>Please try again later or refresh the page.</p>
+          <h2>Internal server error!</h2>
+          <p>Please try again later.</p>
         </div>
         <Button className="mx-auto" onClick={() => navigate(0)}>
           Refresh
@@ -46,7 +46,7 @@ export default function Error() {
 
   return (
     <div className="container grid min-h-dvh place-content-center gap-6 py-12 text-center">
-      {error && error.status === 404 ? renderNotFound() : renderError()}
+      {error && (error as { status: number }).status === 404 ? statusRender() : renderError()}
     </div>
   );
 }

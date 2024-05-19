@@ -9,7 +9,7 @@ import {
   PokemonsDetails,
   useGetPokemons,
   useGetPokemonsDetails,
-} from '@/hooks/pokemons';
+} from '@/hooks/pokemonList';
 import { useFilter } from '@/hooks/queryState';
 import {
   Select,
@@ -41,28 +41,22 @@ export default function PokemonsList() {
       <main>
         <div className="container grid h-full max-w-[1300px] gap-y-24 py-8 pb-16 md:py-12 md:pb-24">
           <p className="text-center font-sans text-xl font-medium md:text-2xl">
-            Loading pokemons...
+            Loading pokemon list...
           </p>
         </div>
       </main>
     );
   }
 
-  /* `pokemonsDetails` returns array of all the queries, mapping over it to only get the `data` fields  
-  - returns an empty array if `useGetPokemons` data in undefined
-  - running after `useGetPokemons` and all the queries for `useGetPokemonsDetails` are successful ensures that all the data is available 
-  */
   const pokemonsDetailsData = pokemonsDetails.map(
     (pokemon) => pokemon.data as PokemonsDetails,
   );
 
-  /* get unique types from all the fetched pokemons */
   const allTypes = pokemonsDetailsData.flatMap((pokemon) =>
     pokemon.types.map((type) => type.type.name),
   );
-  const uniqueTypes = ['all', ...new Set(allTypes)]; // get unique types
+  const uniqueTypes = ['all', ...new Set(allTypes)];
 
-  /* filter pokemons by `pokemonType` */
   const pokemonsByType =
     filter.pokemonType === 'all'
       ? pokemonsDetailsData
@@ -70,9 +64,6 @@ export default function PokemonsList() {
           pokemon.types.some((type) => type.type.name === filter.pokemonType),
         );
 
-  /* filter`pokemonType` by search result 
-    - only filtering by `name` here
-  */
   const pokemonsBySearch = pokemonsByType.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(filter.s.toLowerCase()),
   );
@@ -94,7 +85,7 @@ export default function PokemonsList() {
       <main>
         <div className="container grid h-full max-w-[1300px] gap-y-24 py-8 pb-16 md:py-12 md:pb-24">
           <p className="text-center font-sans font-medium md:text-lg">
-            Oops! No matches. Adjust your filters or modify your search query.
+            No matches found.
           </p>
         </div>
       </main>

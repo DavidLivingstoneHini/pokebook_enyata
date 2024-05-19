@@ -42,7 +42,7 @@ export const getPokemons = async () => {
     'https://pokeapi.co/api/v2/pokemon?limit=500&offset=0',
   );
   if (!response.ok) {
-    throw new Error('Failed to fetch pokemons');
+    throw new Error('Failed to fetch data');
   }
 
   const data = await response.json();

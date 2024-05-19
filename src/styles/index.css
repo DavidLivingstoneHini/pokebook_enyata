@@ -74,7 +74,7 @@
         hsl(0 0% 100% / 0.95),
         hsl(0 0% 100% / 0.95)
       ),
-      url('/assets/images/noise.webp');
+      url('/assets/images/backgroundImage.webp');
   }
 
   :is(h1, h2, h3, h4) {
