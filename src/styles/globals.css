@@ -1,0 +1,103 @@
+/* multiple font formats are provided here to provide better compression and wider browser support */
+@font-face {
+  font-family: 'GeneralSans-Variable';
+  src:
+    url('/assets/fonts/general-sans/GeneralSans-Variable.woff2') format('woff2'),
+    url('/assets/fonts/general-sans/GeneralSans-Variable.woff') format('woff'),
+    url('/assets/fonts/general-sans/GeneralSans-Variable.ttf')
+      format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src:
+    url('/assets/fonts/clash-display/ClashDisplay-Variable.woff2')
+      format('woff2'),
+    url('/assets/fonts/clash-display/ClashDisplay-Variable.woff') format('woff'),
+    url('/assets/fonts/clash-display/ClashDisplay-Variable.ttf')
+      format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'GeneralSans-Variable';
+    --font-decorative: 'ClashDisplay-Variable';
+    --radius: 12px;
+
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 88%;
+  }
+
+  [data-accent='pink' i] {
+    --accent: 341 76% 62%;
+    --accent-foreground: 0 0% 100%;
+  }
+  [data-accent='blue' i] {
+    --accent: 193 72% 55%;
+    --accent-foreground: 0 0% 100%;
+  }
+  [data-accent='yellow' i] {
+    --accent: 41 76% 51%;
+    --accent-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  :where(*, *::before, *::after) {
+    @apply border-border;
+  }
+
+  ::selection {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  body {
+    @apply min-h-dvh bg-background font-decorative text-foreground antialiased bg-cover bg-fixed bg-center bg-no-repeat;
+    background-image: linear-gradient(
+        hsl(0 0% 100% / 0.95),
+        hsl(0 0% 100% / 0.95)
+      ),
+      url('/assets/images/noise.webp');
+  }
+
+  :is(h1, h2, h3, h4) {
+    @apply scroll-m-20 text-foreground font-semibold;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+
+  :where(a, button) {
+    @apply rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/50;
+  }
+
+  input[type='search']::-webkit-search-cancel-button {
+    display: none;
+  }
+}
