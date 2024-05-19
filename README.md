@@ -1,4 +1,4 @@
-# [Pokebook](https://pokebook-5gy.pages.dev/)
+# PokeBook
 
 # Installation
 ## Clone the repository
