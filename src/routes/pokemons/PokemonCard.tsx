@@ -5,17 +5,17 @@ import { cn } from '@/lib/utils';
 import {
   PokemonsDetails,
   useGetPokemonsDetails,
-} from '@/hooks/api/use-pokemon';
-import { Button } from '@/components/ui/button';
+} from '@/hooks/pokemons';
+import { Button } from '@/components/CustomButton';
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
   DrawerTrigger,
-} from '@/components/ui/drawer';
-import { Progress } from '@/components/ui/progress';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Icons } from '@/components/common/icons';
+} from '@/components/SideModal';
+import { Progress } from '@/components/progress';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/Tabs';
+import { Icons } from '@/components/icons';
 
 /* adjust values for weight and height 
 eg:

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { AccentContext } from '@/context/accent-provider';
+import { AccentContext } from '@/context/pokeTheme';
 
 export function useAccent() {
   const context = React.useContext(AccentContext);

@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { RouterProvider } from 'react-router-dom';
 
-import { AccentProvider } from './context/accent-provider';
+import { AccentProvider } from './context/pokeTheme';
 import { router } from './routes';
 
 const queryClient = new QueryClient();

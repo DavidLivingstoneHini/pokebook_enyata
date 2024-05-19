@@ -26,6 +26,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "@types"],
+  "include": ["src", "@types", "src/utils/error.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

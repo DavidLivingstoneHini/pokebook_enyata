@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { accentColors, accentColorsValues } from '@/lib/data';
 import { cn } from '@/lib/utils';
-import { useAccent } from '@/hooks/use-accent';
-import useMediaQuery from '@/hooks/use-media-query';
+import { useAccent } from '@/hooks/theme';
+import useMediaQuery from '@/hooks/mediaQuery';
 import {
   Dialog,
   DialogClose,
@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from '@/components/Dialog';
 import {
   Drawer,
   DrawerClose,
@@ -19,7 +19,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from '@/components/ui/drawer';
+} from '@/components/SideModal';
 
 export default function AccentSwitcher() {
   const [open, setOpen] = React.useState(false);

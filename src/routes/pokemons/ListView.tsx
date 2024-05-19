@@ -9,8 +9,8 @@ import {
   PokemonsDetails,
   useGetPokemons,
   useGetPokemonsDetails,
-} from '@/hooks/api/use-pokemon';
-import { useFilter } from '@/hooks/use-query-state';
+} from '@/hooks/pokemons';
+import { useFilter } from '@/hooks/queryState';
 import {
   Select,
   SelectContent,
@@ -18,9 +18,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/components/select';
 
-import PokemonCard from './pokemon-card';
+import PokemonCard from './PokemonCard';
 
 const perPageValues = [8, 12, 16, 24];
 

@@ -1,15 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-import AccentSwitcher from './accent-switcher';
-import PokemonsList from './pokemons-list';
-import Search from './search';
+import SetThemes from './ThemeSettings';
+import PokemonsList from './ListView';
+import Search from '../../components/SearchBox';
 
 export default function Pokemons() {
   return (
     <div className="grid min-h-dvh grid-rows-[80px_1fr] gap-y-16">
       <Helmet>
-        <title>Pokemons | Pokebook</title>
+        <title>Pokebook</title>
       </Helmet>
       <header
         className="bg-cover bg-fixed bg-center bg-no-repeat shadow-[0_14px_24px_0_hsl(0_0%_0%_/_.05)]"
@@ -30,7 +30,7 @@ export default function Pokemons() {
             </h1>
           </Link>
           <Search />
-          <AccentSwitcher />
+          <SetThemes />
         </div>
       </header>
       <PokemonsList />

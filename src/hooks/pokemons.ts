@@ -1,11 +1,6 @@
 import { useQueries, useQuery } from '@tanstack/react-query';
 import { z } from 'zod';
 
-/* --SCHEMAS--
-zod schema to strip out unnecessary fields and get types from api - 
-- eg: only the `results` field is really needed for the fetched pokemons data
-- use `https://transform.tools/json-to-zod` to convert json to zod
-*/
 const Pokemons = z.object({
   results: z.array(z.object({ name: z.string(), url: z.string() })),
 });
@@ -42,7 +37,6 @@ const PokemonsDetails = z.object({
 });
 export type PokemonsDetails = z.infer<typeof PokemonsDetails>;
 
-/* --FETCHER FUNCTIONS-- */
 export const getPokemons = async () => {
   const response = await fetch(
     'https://pokeapi.co/api/v2/pokemon?limit=500&offset=0',
@@ -75,13 +69,8 @@ const getPokemonsDetails = async (url: string) => {
   return result.data;
 };
 
-/* --QUERY KEYS-- */
 export const pokemonsQueryKey = ['pokemons'];
 
-/* --QUERY HOOKS-- */
-/* fetch pokemons 
-- this is to get the urls of the pokemons 
-*/
 export function useGetPokemons() {
   return useQuery({
     queryKey: pokemonsQueryKey,
@@ -91,11 +80,6 @@ export function useGetPokemons() {
   });
 }
 
-/* fetch pokemons details 
-  - this is to get the details for each pokemon 
-  - fetches details for each pokemon using the urls from `useGetPokemons`
-  - returns an array of all the queries
-*/
 export function useGetPokemonsDetails() {
   const { data: pokemonsUrls } = useGetPokemons();
 

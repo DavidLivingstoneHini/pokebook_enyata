@@ -2,16 +2,13 @@ import * as React from 'react';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
 import { cn } from '@/lib/utils';
-import { useFilter } from '@/hooks/use-query-state';
-import { Icons } from '@/components/common/icons';
+import { useFilter } from '@/hooks/queryState';
+import { Icons } from '@/components/icons';
 
 export default function Search() {
   const [filter, setFilter] = useFilter();
   const [searchValue, setSearchValue] = React.useState(filter.s);
 
-  /* set state in effect to allow trimming before setting filter in the url
-  - doing it directly on the input event handler prevents typing as it continously trims on value change
-   */
   React.useEffect(() => {
     if (searchValue.trim() === '') {
       setFilter({ s: undefined });
