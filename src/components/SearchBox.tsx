@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
-import { cn } from '@/utils/utils';
+import { st } from '@/utils/utils';
 import { useFilter } from '@/hooks/queryState';
 import { Icons } from '@/utils/icons';
 
@@ -32,7 +32,7 @@ export default function Search() {
       />
       <button
         type="button"
-        className={cn(
+        className={st(
           'pointer-events-none invisible flex size-6 items-center justify-center self-center rounded-full bg-muted text-muted-foreground md:size-8',
           searchValue !== '' && 'pointer-events-auto visible',
         )}

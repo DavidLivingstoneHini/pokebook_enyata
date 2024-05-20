@@ -1,7 +1,7 @@
 import * as React from 'react';
 import GenColor from 'colorthief';
 
-import { cn } from '@/utils/utils';
+import { st } from '@/utils/utils';
 import {
   PokemonsDetails,
   useGetPokemonsDetails,
@@ -220,7 +220,7 @@ export default function PokemonCard({ pokemon }: { pokemon: PokemonsDetails }) {
                   <React.Fragment key={stat.stat.name}>
                     <div className="grid grid-cols-[1fr_120px_36px] items-center gap-x-6 py-2 text-lg md:grid-cols-[1fr_189px_36px] md:gap-x-10 md:text-xl">
                       <p
-                        className={cn(
+                        className={st(
                           'justify-self-end capitalize',
                           stat.stat.name === 'hp' && 'uppercase',
                         )}
@@ -285,7 +285,7 @@ export default function PokemonCard({ pokemon }: { pokemon: PokemonsDetails }) {
 function Divider({ className }: { className?: string }) {
   return (
     <div
-      className={cn('mx-auto h-0.5 w-[min(90%,_510px)]', className)}
+      className={st('mx-auto h-0.5 w-[min(90%,_510px)]', className)}
       style={{
         backgroundImage:
           'linear-gradient(270deg, #FFFFFF -20%, hsla(0, 0%, 85%, 0.45) 45.3%, #FFFFFF 102.92%)',

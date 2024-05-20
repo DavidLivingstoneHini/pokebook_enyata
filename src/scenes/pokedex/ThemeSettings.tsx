@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { themeColors, colorSets } from '@/utils/data';
-import { cn } from '@/utils/utils';
+import { st } from '@/utils/utils';
 import { useTheme } from '@/hooks/theme';
 import useMediaQuery from '@/hooks/mediaQuery';
 import {
@@ -51,7 +51,7 @@ export default function ThemeSwitcher() {
                             '--theme-color': `${colorSets[themeColor]}`,
                           } as React.CSSProperties
                         }
-                        className={cn(
+                        className={st(
                           'flex size-[74px] items-center justify-center rounded-full bg-[hsl(var(--theme-color))] text-theme-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--theme-color)_/_.5)]',
                           isActivethemeColor &&
                             'outline outline-2 outline-offset-4 outline-foreground focus-visible:outline',
@@ -94,7 +94,7 @@ export default function ThemeSwitcher() {
                           '--theme-color': `${colorSets[themeColor]}`,
                         } as React.CSSProperties
                       }
-                      className={cn(
+                      className={st(
                         'flex size-12 items-center justify-center rounded-full bg-[hsl(var(--theme-color))] text-theme-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--theme-color)_/_.5)]',
                         isActivethemeColor &&
                           'outline outline-2 outline-offset-4 outline-foreground focus-visible:outline',

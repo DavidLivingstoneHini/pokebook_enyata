@@ -29,6 +29,7 @@
     "react-helmet-async": "^2.0.5",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.23.1",
+    "react-spinners": "^0.13.8",
     "tailwind-merge": "^2.3.0",
     "use-query-params": "^2.2.1",
     "vaul": "^0.9.1",
