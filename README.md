@@ -1,6 +1,6 @@
 # PokeBook
 
-![alt text](https://github.com/[DavidLivingstoneHini]/[poki-booki]/blob/[main]/ListView.png?raw=true)
+![alt text](public/assets/images/ListView.png)
 
 # Installation
 ## Clone the repository
