@@ -4,8 +4,8 @@ import { themeColors } from '@/utils/data';
 
 type ThemeColor = (typeof themeColors)[number];
 type ThemeContext = {
-  accent: ThemeColor;
-  setAccent: (accent: ThemeColor) => void;
+  theme: ThemeColor;
+  setTheme: (theme: ThemeColor) => void;
 };
 type ThemeProps = {
   children: React.ReactNode;
@@ -18,23 +18,23 @@ export const ThemeContext = React.createContext({} as ThemeContext);
 export const GetTheme = ({
   children,
   baseTheme = 'pink',
-  storageKey = 'accent',
+  storageKey = 'theme',
 }: ThemeProps) => {
-  const [accent, setAccent] = React.useState(
+  const [theme, setTheme] = React.useState(
     () => (localStorage.getItem(storageKey) as ThemeColor) ?? baseTheme,
   );
 
   React.useEffect(() => {
-    document.documentElement.dataset.accent = accent;
-  }, [accent]);
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   return (
     <ThemeContext.Provider
       value={{
-        accent,
-        setAccent: (accent: ThemeColor) => {
-          localStorage.setItem(storageKey, accent);
-          setAccent(accent);
+        theme,
+        setTheme: (theme: ThemeColor) => {
+          localStorage.setItem(storageKey, theme);
+          setTheme(theme);
         },
       }}
     >

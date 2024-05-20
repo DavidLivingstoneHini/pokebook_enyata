@@ -26,7 +26,7 @@ export default function Pokemons() {
               alt="Pokebook logo"
             />
             <h1 className="font-decorative text-2xl max-lg:hidden">
-              Poke<span className="text-accent">book</span>
+              Poke<span className="text-theme">book</span>
             </h1>
           </Link>
           <Search />

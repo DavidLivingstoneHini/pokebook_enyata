@@ -3,7 +3,7 @@ import { Cross1Icon } from '@radix-ui/react-icons';
 
 import { cn } from '@/utils/utils';
 import { useFilter } from '@/hooks/queryState';
-import { Icons } from '@/components/icons';
+import { Icons } from '@/utils/icons';
 
 export default function Search() {
   const [filter, setFilter] = useFilter();
@@ -26,7 +26,7 @@ export default function Search() {
       <input
         type="text"
         placeholder="Enter pokemon name"
-        className="w-full rounded-full bg-transparent px-2 font-sans caret-accent outline-none placeholder:text-[#7B7B7B] md:px-3 md:text-lg"
+        className="w-full rounded-full bg-transparent px-2 font-sans caret-theme outline-none placeholder:text-[#7B7B7B] md:px-3 md:text-lg"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
       />

@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/Dialog';
+} from '@/utils/Dialog';
 import {
   Drawer,
   DrawerClose,
@@ -21,16 +21,16 @@ import {
   DrawerTrigger,
 } from '@/components/SideModal';
 
-export default function AccentSwitcher() {
+export default function ThemeSwitcher() {
   const [open, setOpen] = React.useState(false);
   const { matches } = useMediaQuery('(min-width: 768px)');
-  const { accent, setAccent } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   if (matches) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <button className="aspect-square size-7 rounded-full bg-accent outline outline-1 outline-offset-4 outline-[#868686] focus-visible:ring-4 md:size-[34.81px]"></button>
+          <button className="aspect-square size-7 rounded-full bg-theme outline outline-1 outline-offset-4 outline-[#868686] focus-visible:ring-4 md:size-[34.81px]"></button>
         </DialogTrigger>
         <DialogContent className="h-[263px] w-[427px] overflow-hidden rounded-[32px] bg-[#EBEBEB] p-0 lg:duration-300 lg:data-[state=closed]:slide-out-to-bottom-12 lg:data-[state=open]:slide-in-from-bottom-12">
           <DialogHeader className="flex h-[57px] flex-row items-center justify-center bg-background shadow-[0_4px_4px_0_hsl(0_0%_0%_/_.03)] sm:text-center">
@@ -38,26 +38,26 @@ export default function AccentSwitcher() {
           </DialogHeader>
           <div className="p-6">
             <ul className="flex items-center justify-center gap-8">
-              {themeColors.map((accentColor) => {
-                const isActiveAccentColor = accentColor === accent;
+              {themeColors.map((themeColor) => {
+                const isActivethemeColor = themeColor === theme;
 
                 return (
-                  <li key={accentColor}>
+                  <li key={themeColor}>
                     <DialogClose asChild>
                       <button
-                        onClick={() => setAccent(accentColor)}
+                        onClick={() => setTheme(themeColor)}
                         style={
                           {
-                            '--accent-color': `${colorSets[accentColor]}`,
+                            '--theme-color': `${colorSets[themeColor]}`,
                           } as React.CSSProperties
                         }
                         className={cn(
-                          'flex size-[74px] items-center justify-center rounded-full bg-[hsl(var(--accent-color))] text-accent-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent-color)_/_.5)]',
-                          isActiveAccentColor &&
+                          'flex size-[74px] items-center justify-center rounded-full bg-[hsl(var(--theme-color))] text-theme-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--theme-color)_/_.5)]',
+                          isActivethemeColor &&
                             'outline outline-2 outline-offset-4 outline-foreground focus-visible:outline',
                         )}
                       >
-                        <span className="sr-only">{accentColor}</span>
+                        <span className="sr-only">{themeColor}</span>
                       </button>
                     </DialogClose>
                   </li>
@@ -72,7 +72,7 @@ export default function AccentSwitcher() {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <button className="aspect-square size-7 rounded-full bg-accent outline outline-1 outline-offset-4 outline-[#868686] focus-visible:ring-4 md:size-[34.81px]"></button>
+        <button className="aspect-square size-7 rounded-full bg-theme outline outline-1 outline-offset-4 outline-[#868686] focus-visible:ring-4 md:size-[34.81px]"></button>
       </DrawerTrigger>
       <DrawerContent className="inset-x-0 bottom-0 mt-24 flex h-[263px] flex-col overflow-hidden rounded-t-[32px] bg-[#EBEBEB]">
         <DrawerHeader className="bg-background shadow-[0_4px_4px_0_hsl(0_0%_0%_/_.03)]">
@@ -81,26 +81,26 @@ export default function AccentSwitcher() {
         </DrawerHeader>
         <div className="flex h-full items-center justify-center p-6">
           <ul className="flex items-center justify-center gap-6">
-            {themeColors.map((accentColor) => {
-              const isActiveAccentColor = accentColor === accent;
+            {themeColors.map((themeColor) => {
+              const isActivethemeColor = themeColor === theme;
 
               return (
-                <li key={accentColor}>
+                <li key={themeColor}>
                   <DrawerClose asChild>
                     <button
-                      onClick={() => setAccent(accentColor)}
+                      onClick={() => setTheme(themeColor)}
                       style={
                         {
-                          '--accent-color': `${colorSets[accentColor]}`,
+                          '--theme-color': `${colorSets[themeColor]}`,
                         } as React.CSSProperties
                       }
                       className={cn(
-                        'flex size-12 items-center justify-center rounded-full bg-[hsl(var(--accent-color))] text-accent-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--accent-color)_/_.5)]',
-                        isActiveAccentColor &&
+                        'flex size-12 items-center justify-center rounded-full bg-[hsl(var(--theme-color))] text-theme-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--theme-color)_/_.5)]',
+                        isActivethemeColor &&
                           'outline outline-2 outline-offset-4 outline-foreground focus-visible:outline',
                       )}
                     >
-                      <span className="sr-only">{accentColor}</span>
+                      <span className="sr-only">{themeColor}</span>
                     </button>
                   </DrawerClose>
                 </li>

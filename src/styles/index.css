@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'GeneralSans-Variable';
   src:
@@ -22,10 +26,6 @@
   font-style: normal;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   :root {
     --font-sans: 'GeneralSans-Variable';
@@ -44,17 +44,17 @@
     --border: 0 0% 88%;
   }
 
-  [data-accent='pink' i] {
-    --accent: 341 76% 62%;
-    --accent-foreground: 0 0% 100%;
+  [data-theme='pink' i] {
+    --theme: 341 76% 62%;
+    --theme-foreground: 0 0% 100%;
   }
-  [data-accent='blue' i] {
-    --accent: 193 72% 55%;
-    --accent-foreground: 0 0% 100%;
+  [data-theme='blue' i] {
+    --theme: 193 72% 55%;
+    --theme-foreground: 0 0% 100%;
   }
-  [data-accent='yellow' i] {
-    --accent: 41 76% 51%;
-    --accent-foreground: 0 0% 100%;
+  [data-theme='yellow' i] {
+    --theme: 41 76% 51%;
+    --theme-foreground: 0 0% 100%;
   }
 }
 
@@ -64,7 +64,7 @@
   }
 
   ::selection {
-    @apply bg-accent text-accent-foreground;
+    @apply bg-theme text-theme-foreground;
   }
 
   body {
@@ -93,7 +93,7 @@
   }
 
   :where(a, button) {
-    @apply rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/50;
+    @apply rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-theme/50;
   }
 
   input[type='search']::-webkit-search-cancel-button {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { Button } from '@/components/CustomButton';
-import { Icons } from '@/components/icons';
+import { Icons } from '@/utils/icons';
 
 export default function Home() {
   const [loading, setLoading] = React.useState(false);
@@ -38,7 +38,7 @@ export default function Home() {
           alt="Pokebook logo"
         />
         <h1 className="font-decorative">
-          Poké <span className="text-accent">book</span>
+          Poké <span className="text-theme">book</span>
         </h1>
         <p className="max-w-[370px] text-lg">
           Largest Pokémon index with information about every Pokemon you can
@@ -47,20 +47,20 @@ export default function Home() {
       </div>
       <div className="grid justify-items-center gap-y-6">
         <form
-          className="grid h-[60px] w-[min(calc(100%_-_8px),_536px)] grid-cols-[1fr_auto] rounded-full border pr-2 ring-8 ring-accent md:h-[64px] md:w-[536px]"
+          className="ring-theme grid h-[60px] w-[min(calc(100%_-_8px),_536px)] grid-cols-[1fr_auto] rounded-full border pr-2 ring-8 md:h-[64px] md:w-[536px]"
           onSubmit={handleSearch}
         >
           <input
             type="search"
             name="search"
             placeholder="Enter pokemon name"
-            className="w-full rounded-full bg-transparent px-2 text-lg caret-accent outline-none placeholder:text-[#7B7B7B] md:pl-4 md:text-2xl"
+            className="caret-theme w-full rounded-full bg-transparent px-2 text-lg outline-none placeholder:text-[#7B7B7B] md:pl-4 md:text-2xl"
           />
           <Button
             type="submit"
             variant={'plain'}
             size={'icon'}
-            className="size-[46px] self-center rounded-full bg-accent text-accent-foreground shadow-[0_4px_4px_0_hsl(0_0%_0%_/.15)]"
+            className="bg-theme text-theme-foreground size-[46px] self-center rounded-full shadow-[0_4px_4px_0_hsl(0_0%_0%_/.15)]"
             disabled={loading}
           >
             <Icons.SearchIcon />

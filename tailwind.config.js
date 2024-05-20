@@ -31,9 +31,9 @@ module.exports = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        theme: {
+          DEFAULT: 'hsl(var(--theme))',
+          foreground: 'hsl(var(--theme-foreground))',
         },
       },
       fontFamily: {

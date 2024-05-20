@@ -13,9 +13,9 @@ import {
   DrawerContent,
   DrawerTrigger,
 } from '@/components/SideModal';
-import { Progress } from '@/components/progress';
+import { Progress } from '@/utils/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/Tabs';
-import { Icons } from '@/components/icons';
+import { Icons } from '@/utils/icons';
 
 function adjustValue(value: number) {
   const adjustedValue = value / 10;

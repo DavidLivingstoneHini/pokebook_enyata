@@ -114,7 +114,7 @@ export default function PokemonsList() {
               containerClassName="flex w-fit flex-wrap items-center gap-0.5 font-medium text-foreground md:gap-2 md:text-lg"
               pageClassName="block"
               pageLinkClassName="flex aspect-square size-8 items-center justify-center rounded-sm md:size-[40px] md:rounded-[8px] md:bg-muted"
-              activeLinkClassName="border border-transparent text-accent max-md:border-accent md:!bg-accent md:text-accent-foreground"
+              activeLinkClassName="text-theme max-md:border-theme md:!bg-theme md:text-theme-foreground border border-transparent"
               disabledClassName="pointer-events-none text-muted-foreground/30"
               previousLabel={<ChevronLeftIcon className="size-4 md:size-6" />}
               previousLinkClassName="flex aspect-square size-8 items-center justify-center rounded-sm md:size-[40px] md:rounded-[8px] md:bg-muted"
