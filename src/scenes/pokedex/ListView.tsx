@@ -34,11 +34,6 @@ export default function PokemonsList() {
     (pokemon) => pokemon.data as PokemonsDetails
   );
 
-  const allTypes = pokemonsDetailsData.flatMap((pokemon) =>
-    pokemon.types.map((type) => type.type.name)
-  );
-  const uniqueTypes = ['all', ...new Set(allTypes)];
-
   const pokemonsByType =
     filter.pokemonType === 'all'
       ? pokemonsDetailsData
