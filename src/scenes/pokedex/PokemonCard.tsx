@@ -14,7 +14,7 @@ import {
   DrawerTrigger,
 } from '@/components/SideModal';
 import { Progress } from '@/utils/progress';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/Tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/TabsMenu';
 import { Icons } from '@/utils/icons';
 
 function adjustValue(value: number) {
@@ -70,7 +70,7 @@ export default function PokemonCard({ pokemon }: { pokemon: PokemonsDetails }) {
     (pokemon) => pokemon.data as PokemonsDetails,
   );
 
-  const similarPokemons = pokemonsDetailsData
+  const pokemonClasses = pokemonsDetailsData
     .filter((pokemonDetails) => {
       if (pokemonDetails.types.length !== pokemon.types.length) return false;
 
@@ -79,7 +79,7 @@ export default function PokemonCard({ pokemon }: { pokemon: PokemonsDetails }) {
           type.type.name === pokemonDetails.types[index].type.name,
       );
     })
-    .filter((similarPokemon) => similarPokemon.id !== pokemon.id);
+    .filter((pokemonClass) => pokemonClass.id !== pokemon.id);
 
   React.useEffect(() => {
     getDominantColor(pokemon.sprites.other.dream_world.front_default, (color) =>
@@ -245,24 +245,24 @@ export default function PokemonCard({ pokemon }: { pokemon: PokemonsDetails }) {
               <Divider />
               <div className="mx-auto mt-20 grid w-[min(100%,_510px)] pb-4">
                 <ul className="grid grid-cols-[repeat(auto-fill,_minmax(min(288px,_100%),_1fr))] gap-x-4 gap-y-20 md:grid-cols-2">
-                  {similarPokemons.map((similarPokemon) => (
+                  {pokemonClasses.map((pokemonClass) => (
                     <li
-                      key={similarPokemon.id}
+                      key={pokemonClass.id}
                       className="grid justify-items-center gap-y-2 rounded-[20px] bg-background p-2.5 shadow-[0_4px_40px_0_hsl(0_0%_0%_/_.06)]"
                     >
                       <div className="flex h-[125.8px] w-full items-center justify-center rounded-[15px] bg-[#F1F1F1] md:h-[148px]">
                         <img
                           className="relative -top-12 h-[162.35px] w-[161.09px] object-contain md:h-[191px] md:w-[189.9px]"
                           src={
-                            similarPokemon.sprites.other.dream_world
+                            pokemonClass.sprites.other.dream_world
                               .front_default
                           }
-                          alt={similarPokemon.name}
+                          alt={pokemonClass.name}
                         />
                       </div>
         
                       <p className="text-2xl font-medium">
-                        {similarPokemon.name}
+                        {pokemonClass.name}
                       </p>
                     </li>
                   ))}
