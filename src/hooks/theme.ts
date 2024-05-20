@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { AccentContext } from '@/utils/pokeTheme';
+import { ThemeContext } from '@/utils/pokeTheme';
 
-export function useAccent() {
-  const context = React.useContext(AccentContext);
+export function useTheme() {
+  const context = React.useContext(ThemeContext);
 
   if (context === undefined)
-    throw new Error('useAccent must be used within AccentProvider');
+    throw new Error('Cannot set theme');
 
   return context;
 }

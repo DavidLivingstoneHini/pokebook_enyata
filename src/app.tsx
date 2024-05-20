@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { RouterProvider } from 'react-router-dom';
 
-import { AccentProvider } from './utils/pokeTheme';
+import { GetTheme } from './utils/pokeTheme';
 import { router } from './scenes';
 
 const queryClient = new QueryClient();
@@ -15,10 +15,10 @@ export default function App() {
         <title>Pokebook</title>
       </Helmet>
       <QueryClientProvider client={queryClient}>
-        <AccentProvider>
+        <GetTheme>
           <RouterProvider router={router} />
           <ReactQueryDevtools initialIsOpen={false} />
-        </AccentProvider>
+        </GetTheme>
       </QueryClientProvider>
     </HelmetProvider>
   );

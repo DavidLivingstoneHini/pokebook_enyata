@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Cross1Icon } from '@radix-ui/react-icons';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/utils';
 import { useFilter } from '@/hooks/queryState';
 import { Icons } from '@/components/icons';
 

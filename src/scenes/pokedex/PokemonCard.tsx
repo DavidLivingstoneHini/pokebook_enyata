@@ -1,7 +1,7 @@
 import * as React from 'react';
-import ColorThief from 'colorthief';
+import GenColor from 'colorthief';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/utils';
 import {
   PokemonsDetails,
   useGetPokemonsDetails,
@@ -17,11 +17,6 @@ import { Progress } from '@/components/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/Tabs';
 import { Icons } from '@/components/icons';
 
-/* adjust values for weight and height 
-eg:
-- 130 returns 13.0
-- 10 returns 1.0
-*/
 function adjustValue(value: number) {
   const adjustedValue = value / 10;
 
@@ -55,14 +50,14 @@ function getPokeEmoji(type: string) {
 type CallbackFunction = (color: number[]) => void;
 function getDominantColor(imageUrl: string, callback: CallbackFunction): void {
   const img = document.createElement('IMG') as HTMLImageElement;
-  const colorThief = new ColorThief();
+  const genColor = new GenColor();
   img.setAttribute('src', imageUrl);
   img.crossOrigin = 'Anonymous';
   if (img.complete) {
-    callback(colorThief.getColor(img));
+    callback(genColor.getColor(img));
   } else {
     img.addEventListener('load', function () {
-      callback(colorThief.getColor(img));
+      callback(genColor.getColor(img));
     });
   }
 }

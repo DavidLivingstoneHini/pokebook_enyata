@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { accentColors, accentColorsValues } from '@/lib/data';
-import { cn } from '@/lib/utils';
-import { useAccent } from '@/hooks/theme';
+import { themeColors, colorSets } from '@/utils/data';
+import { cn } from '@/utils/utils';
+import { useTheme } from '@/hooks/theme';
 import useMediaQuery from '@/hooks/mediaQuery';
 import {
   Dialog,
@@ -24,7 +24,7 @@ import {
 export default function AccentSwitcher() {
   const [open, setOpen] = React.useState(false);
   const { matches } = useMediaQuery('(min-width: 768px)');
-  const { accent, setAccent } = useAccent();
+  const { accent, setAccent } = useTheme();
 
   if (matches) {
     return (
@@ -38,7 +38,7 @@ export default function AccentSwitcher() {
           </DialogHeader>
           <div className="p-6">
             <ul className="flex items-center justify-center gap-8">
-              {accentColors.map((accentColor) => {
+              {themeColors.map((accentColor) => {
                 const isActiveAccentColor = accentColor === accent;
 
                 return (
@@ -48,7 +48,7 @@ export default function AccentSwitcher() {
                         onClick={() => setAccent(accentColor)}
                         style={
                           {
-                            '--accent-color': `${accentColorsValues[accentColor]}`,
+                            '--accent-color': `${colorSets[accentColor]}`,
                           } as React.CSSProperties
                         }
                         className={cn(
@@ -81,7 +81,7 @@ export default function AccentSwitcher() {
         </DrawerHeader>
         <div className="flex h-full items-center justify-center p-6">
           <ul className="flex items-center justify-center gap-6">
-            {accentColors.map((accentColor) => {
+            {themeColors.map((accentColor) => {
               const isActiveAccentColor = accentColor === accent;
 
               return (
@@ -91,7 +91,7 @@ export default function AccentSwitcher() {
                       onClick={() => setAccent(accentColor)}
                       style={
                         {
-                          '--accent-color': `${accentColorsValues[accentColor]}`,
+                          '--accent-color': `${colorSets[accentColor]}`,
                         } as React.CSSProperties
                       }
                       className={cn(

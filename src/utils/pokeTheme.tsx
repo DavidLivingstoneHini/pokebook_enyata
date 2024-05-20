@@ -1,27 +1,27 @@
 import * as React from 'react';
 
-import { accentColors } from '@/lib/data';
+import { themeColors } from '@/utils/data';
 
-type AccentColor = (typeof accentColors)[number];
-type AccentContext = {
-  accent: AccentColor;
-  setAccent: (accent: AccentColor) => void;
+type ThemeColor = (typeof themeColors)[number];
+type ThemeContext = {
+  accent: ThemeColor;
+  setAccent: (accent: ThemeColor) => void;
 };
-type AccentProviderProps = {
+type ThemeProps = {
   children: React.ReactNode;
-  defaultAccent?: AccentColor;
+  baseTheme?: ThemeColor;
   storageKey?: string;
 };
 
-export const AccentContext = React.createContext({} as AccentContext);
+export const ThemeContext = React.createContext({} as ThemeContext);
 
-export const AccentProvider = ({
+export const GetTheme = ({
   children,
-  defaultAccent = 'pink',
+  baseTheme = 'pink',
   storageKey = 'accent',
-}: AccentProviderProps) => {
+}: ThemeProps) => {
   const [accent, setAccent] = React.useState(
-    () => (localStorage.getItem(storageKey) as AccentColor) ?? defaultAccent,
+    () => (localStorage.getItem(storageKey) as ThemeColor) ?? baseTheme,
   );
 
   React.useEffect(() => {
@@ -29,16 +29,16 @@ export const AccentProvider = ({
   }, [accent]);
 
   return (
-    <AccentContext.Provider
+    <ThemeContext.Provider
       value={{
         accent,
-        setAccent: (accent: AccentColor) => {
+        setAccent: (accent: ThemeColor) => {
           localStorage.setItem(storageKey, accent);
           setAccent(accent);
         },
       }}
     >
       {children}
-    </AccentContext.Provider>
+    </ThemeContext.Provider>
   );
 };
