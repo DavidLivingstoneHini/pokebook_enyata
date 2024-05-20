@@ -5,7 +5,7 @@
 # Installation
 ## Clone the repository
  ```sh
-   git clone https://github.com/DavidLivingstoneHini/poki-booki.git
+git clone https://github.com/DavidLivingstoneHini/poki-booki.git
    ```
  ## Install packages
    ```sh
